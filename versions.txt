@@ -1,6 +1,6 @@
 # Format:
 # module:released-version:current-version
 
-google-cloud-live-stream:0.5.5:0.5.5
-proto-google-cloud-live-stream-v1:0.5.5:0.5.5
-grpc-google-cloud-live-stream-v1:0.5.5:0.5.5
+google-cloud-live-stream:0.5.5:0.5.6-SNAPSHOT
+proto-google-cloud-live-stream-v1:0.5.5:0.5.6-SNAPSHOT
+grpc-google-cloud-live-stream-v1:0.5.5:0.5.6-SNAPSHOT
