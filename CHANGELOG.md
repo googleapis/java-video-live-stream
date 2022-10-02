@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.6](https://github.com/googleapis/java-video-live-stream/compare/v0.5.5...v0.5.6) (2022-10-02)
+
+
+### Dependencies
+
+* Update dependency gcp-releasetool to v1.8.9 ([#128](https://github.com/googleapis/java-video-live-stream/issues/128)) ([dda7310](https://github.com/googleapis/java-video-live-stream/commit/dda7310076da03224f16a52734f7e3ef630c5a87))
+* Update dependency importlib-metadata to v4.13.0 ([#126](https://github.com/googleapis/java-video-live-stream/issues/126)) ([eb41972](https://github.com/googleapis/java-video-live-stream/commit/eb4197272139cbdd34c8ad947cbcbe61d65bab8d))
+* Update dependency importlib-metadata to v5 ([#127](https://github.com/googleapis/java-video-live-stream/issues/127)) ([b38dd2b](https://github.com/googleapis/java-video-live-stream/commit/b38dd2be92ddd37e0ef7e87dfccf710f97f116da))
+
 ## [0.5.5](https://github.com/googleapis/java-video-live-stream/compare/v0.5.4...v0.5.5) (2022-09-30)
 
 
