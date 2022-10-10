@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.8](https://github.com/googleapis/java-video-live-stream/compare/v0.5.7...v0.5.8) (2022-10-05)
+
+
+### Bug Fixes
+
+* update protobuf to v3.21.7 ([66e0701](https://github.com/googleapis/java-video-live-stream/commit/66e070190c1407b4c9e6b4ffcad4b258008e1bf6))
+
 ## [0.5.7](https://github.com/googleapis/java-video-live-stream/compare/v0.5.6...v0.5.7) (2022-10-03)
 
 
