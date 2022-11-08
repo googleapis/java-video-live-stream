@@ -14,34 +14,34 @@
  * limitations under the License.
  */
 
-package com.google.cloud.video.livestream.v1.stub.samples;
+package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.stub.LivestreamServiceStubSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_DeleteEvent_sync]
+import com.google.cloud.video.livestream.v1.DeleteEventRequest;
+import com.google.cloud.video.livestream.v1.EventName;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
+import com.google.protobuf.Empty;
 
-public class SyncGetChannel {
+public class SyncDeleteEvent {
 
   public static void main(String[] args) throws Exception {
-    syncGetChannel();
+    syncDeleteEvent();
   }
 
-  public static void syncGetChannel() throws Exception {
+  public static void syncDeleteEvent() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceStubSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceStubSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceStubSettings livestreamServiceSettings =
-        livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      DeleteEventRequest request =
+          DeleteEventRequest.newBuilder()
+              .setName(EventName.of("[PROJECT]", "[LOCATION]", "[CHANNEL]", "[EVENT]").toString())
+              .setRequestId("requestId693933066")
+              .build();
+      livestreamServiceClient.deleteEvent(request);
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_DeleteEvent_sync]

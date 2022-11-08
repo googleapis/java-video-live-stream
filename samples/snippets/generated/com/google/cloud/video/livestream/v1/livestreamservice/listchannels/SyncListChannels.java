@@ -16,31 +16,37 @@
 
 package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.LivestreamServiceSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_ListChannels_sync]
+import com.google.cloud.video.livestream.v1.Channel;
+import com.google.cloud.video.livestream.v1.ListChannelsRequest;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
+import com.google.cloud.video.livestream.v1.LocationName;
 
-public class SyncGetChannel {
+public class SyncListChannels {
 
   public static void main(String[] args) throws Exception {
-    syncGetChannel();
+    syncListChannels();
   }
 
-  public static void syncGetChannel() throws Exception {
+  public static void syncListChannels() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceSettings livestreamServiceSettings = livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      ListChannelsRequest request =
+          ListChannelsRequest.newBuilder()
+              .setParent(LocationName.of("[PROJECT]", "[LOCATION]").toString())
+              .setPageSize(883849137)
+              .setPageToken("pageToken873572522")
+              .setFilter("filter-1274492040")
+              .setOrderBy("orderBy-1207110587")
+              .build();
+      for (Channel element : livestreamServiceClient.listChannels(request).iterateAll()) {
+        // doThingsWith(element);
+      }
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_ListChannels_sync]

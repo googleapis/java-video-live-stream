@@ -16,31 +16,37 @@
 
 package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.LivestreamServiceSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_DeleteChannel_async]
+import com.google.api.core.ApiFuture;
+import com.google.cloud.video.livestream.v1.ChannelName;
+import com.google.cloud.video.livestream.v1.DeleteChannelRequest;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
+import com.google.longrunning.Operation;
 
-public class SyncGetChannel {
+public class AsyncDeleteChannel {
 
   public static void main(String[] args) throws Exception {
-    syncGetChannel();
+    asyncDeleteChannel();
   }
 
-  public static void syncGetChannel() throws Exception {
+  public static void asyncDeleteChannel() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceSettings livestreamServiceSettings = livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      DeleteChannelRequest request =
+          DeleteChannelRequest.newBuilder()
+              .setName(ChannelName.of("[PROJECT]", "[LOCATION]", "[CHANNEL]").toString())
+              .setRequestId("requestId693933066")
+              .setForce(true)
+              .build();
+      ApiFuture<Operation> future =
+          livestreamServiceClient.deleteChannelCallable().futureCall(request);
+      // Do something.
+      future.get();
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_DeleteChannel_async]

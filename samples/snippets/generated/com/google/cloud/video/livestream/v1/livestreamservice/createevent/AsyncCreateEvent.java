@@ -16,31 +16,37 @@
 
 package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.LivestreamServiceSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_CreateEvent_async]
+import com.google.api.core.ApiFuture;
+import com.google.cloud.video.livestream.v1.ChannelName;
+import com.google.cloud.video.livestream.v1.CreateEventRequest;
+import com.google.cloud.video.livestream.v1.Event;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
 
-public class SyncGetChannel {
+public class AsyncCreateEvent {
 
   public static void main(String[] args) throws Exception {
-    syncGetChannel();
+    asyncCreateEvent();
   }
 
-  public static void syncGetChannel() throws Exception {
+  public static void asyncCreateEvent() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceSettings livestreamServiceSettings = livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      CreateEventRequest request =
+          CreateEventRequest.newBuilder()
+              .setParent(ChannelName.of("[PROJECT]", "[LOCATION]", "[CHANNEL]").toString())
+              .setEvent(Event.newBuilder().build())
+              .setEventId("eventId-1376502443")
+              .setRequestId("requestId693933066")
+              .build();
+      ApiFuture<Event> future = livestreamServiceClient.createEventCallable().futureCall(request);
+      // Do something.
+      Event response = future.get();
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_CreateEvent_async]

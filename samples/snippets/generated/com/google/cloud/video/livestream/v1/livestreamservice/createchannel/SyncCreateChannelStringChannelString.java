@@ -14,34 +14,32 @@
  * limitations under the License.
  */
 
-package com.google.cloud.video.livestream.v1.stub.samples;
+package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.stub.LivestreamServiceStubSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_CreateChannel_StringChannelString_sync]
+import com.google.cloud.video.livestream.v1.Channel;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
+import com.google.cloud.video.livestream.v1.LocationName;
 
-public class SyncGetChannel {
+public class SyncCreateChannelStringChannelString {
 
   public static void main(String[] args) throws Exception {
-    syncGetChannel();
+    syncCreateChannelStringChannelString();
   }
 
-  public static void syncGetChannel() throws Exception {
+  public static void syncCreateChannelStringChannelString() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceStubSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceStubSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceStubSettings livestreamServiceSettings =
-        livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      String parent = LocationName.of("[PROJECT]", "[LOCATION]").toString();
+      Channel channel = Channel.newBuilder().build();
+      String channelId = "channelId1461735806";
+      Channel response =
+          livestreamServiceClient.createChannelAsync(parent, channel, channelId).get();
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_CreateChannel_StringChannelString_sync]

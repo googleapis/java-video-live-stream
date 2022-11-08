@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.cloud.video.livestream.v1.stub.samples;
+package com.google.cloud.video.livestream.v1.samples;
 
-// [START livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
-import com.google.cloud.video.livestream.v1.stub.LivestreamServiceStubSettings;
-import java.time.Duration;
+// [START livestream_v1_generated_LivestreamService_GetChannel_sync]
+import com.google.cloud.video.livestream.v1.Channel;
+import com.google.cloud.video.livestream.v1.ChannelName;
+import com.google.cloud.video.livestream.v1.GetChannelRequest;
+import com.google.cloud.video.livestream.v1.LivestreamServiceClient;
 
 public class SyncGetChannel {
 
@@ -32,16 +34,13 @@ public class SyncGetChannel {
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    LivestreamServiceStubSettings.Builder livestreamServiceSettingsBuilder =
-        LivestreamServiceStubSettings.newBuilder();
-    livestreamServiceSettingsBuilder
-        .getChannelSettings()
-        .setRetrySettings(
-            livestreamServiceSettingsBuilder.getChannelSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    LivestreamServiceStubSettings livestreamServiceSettings =
-        livestreamServiceSettingsBuilder.build();
+    try (LivestreamServiceClient livestreamServiceClient = LivestreamServiceClient.create()) {
+      GetChannelRequest request =
+          GetChannelRequest.newBuilder()
+              .setName(ChannelName.of("[PROJECT]", "[LOCATION]", "[CHANNEL]").toString())
+              .build();
+      Channel response = livestreamServiceClient.getChannel(request);
+    }
   }
 }
-// [END livestream_v1_generated_LivestreamServiceStubSettings_GetChannel_sync]
+// [END livestream_v1_generated_LivestreamService_GetChannel_sync]
